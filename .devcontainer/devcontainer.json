@@ -1,0 +1,20 @@
+{
+  "name": "Back to basics - SAP CAP - dev container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": { "VARIANT": "20" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "sapse.vscode-cds",
+        "dbaeumer.vscode-eslint",
+        "humao.rest-client",
+	"qwtel.sqlite-viewer",
+        "mechatroner.rainbow-csv"
+      ]
+    }
+  },
+  "forwardPorts": [ 4004 ],
+  "remoteUser": "node"
+}
