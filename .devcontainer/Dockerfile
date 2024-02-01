@@ -10,3 +10,11 @@ RUN apt-get update && apt-get -y install --no-install-recommends curl git sqlite
 USER node
 RUN npm install -g @sap/cds-dk
 WORKDIR /home/node
+
+# Add conveniences to the Bash shell profile
+RUN <<EOF
+cat >> /home/node/.bashrc <<EOBASHRCADDITIONS
+set -o vi
+bind -x '"\C-l": clear'
+EOBASHRCADDITIONS
+EOF
