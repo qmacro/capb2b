@@ -1,0 +1,24 @@
+###
+# @name QueryBooks
+GET http://localhost:4004/odata/v4/bookshop/Books
+
+### 
+# @name CreateNewBook
+POST http://localhost:4004/odata/v4/bookshop/Books
+Content-Type: application/json
+
+{"title": "The Restaurant At The End Of The Universe"}
+
+### 
+# @name QueryBooksAgain
+GET http://localhost:4004/odata/v4/bookshop/Books
+
+@book_ID = {{ QueryBooksAgain.response.body.value[2].ID }}
+
+### 
+# @name ReadSpecificBookEntity
+GET http://localhost:4004/odata/v4/bookshop/Books({{book_ID}})
+
+### 
+# @name DeleteSpecificBookEntity
+DELETE http://localhost:4004/odata/v4/bookshop/Books({{book_ID}})
