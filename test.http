@@ -1,23 +1,24 @@
+@serviceName = bookshop
 ###
 # @name QueryBooks
-GET http://localhost:4004/odata/v4/bookshop/Books
+GET http://localhost:4004/odata/v4/{{serviceName}}/Books
 
 ### 
 # @name CreateNewBook
-POST http://localhost:4004/odata/v4/bookshop/Books
+POST http://localhost:4004/odata/v4/{{serviceName}}/Books
 Content-Type: application/json
 
-{"title": "The Restaurant At The End Of The Universe"}
+{"title": "BANANAS Long And Thanks For All The Fish"}
 
 ### 
 # @name QueryBooksAgain
-GET http://localhost:4004/odata/v4/bookshop/Books
+GET http://localhost:4004/odata/v4/{{serviceName}}/Books
 
 @book_ID = {{ QueryBooksAgain.response.body.value[2].ID }}
 
 ### 
 # @name ReadSpecificBookEntity
-GET http://localhost:4004/odata/v4/bookshop/Books({{book_ID}})
+GET http://localhost:4004/odata/v4/{{serviceName}}/Books({{book_ID}})
 
 ### 
 # @name DeleteSpecificBookEntity
