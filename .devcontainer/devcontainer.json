@@ -1,25 +1,24 @@
 {
-  "name": "Back to basics - SAP CAP - dev container",
-  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:0-20",
-  "features": {
-    "ghcr.io/devcontainers-contrib/features/curl-apt-get:1": {},
-    "ghcr.io/warrenbuckley/codespace-features/sqlite:latest": {},
-    "ghcr.io/devcontainers/features/git:1": {}
-  },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "sapse.vscode-cds",
-        "dbaeumer.vscode-eslint",
-        "humao.rest-client",
-        "qwtel.sqlite-viewer",
-        "mechatroner.rainbow-csv"
-      ]
-    }
-  },
-  "postCreateCommand": "npm install -g @sap/cds-dk",
-  "forwardPorts": [
-    4004
-  ],
-  "remoteUser": "node"
+    "name": "Back to basics - SAP CAP - dev container",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "VARIANT": "20"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "sapse.vscode-cds",
+                "dbaeumer.vscode-eslint",
+                "humao.rest-client",
+                "qwtel.sqlite-viewer",
+                "mechatroner.rainbow-csv"
+            ]
+        }
+    },
+    "forwardPorts": [
+        4004
+    ],
+    "remoteUser": "node"
 }
