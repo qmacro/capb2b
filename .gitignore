@@ -1,7 +1,7 @@
 # CAP capb2b
 _out
 *.db
-*.sqlite
+*.sqlite*
 connection.properties
 default-*.json
 .cdsrc-private.json
