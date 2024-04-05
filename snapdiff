@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+declare dir1=$1
+declare dir2=$2
+declare source="services"
+
+declare formats="csn cdl sql edmx"
+
+# Compare different snapshot versions of each of the formats
+for format in $formats; do
+    diff --brief "$dir1/$source.$format" "$dir2/$source.$format"
+done

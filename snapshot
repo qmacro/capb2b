@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+declare targetdir=${1:?Specify target dir}
+declare source="services"
+declare formats="csn cdl sql edmx"
+mkdir -p "$targetdir"
+
+# Compile source to all the formats, in files in a specified target dir
+for format in $formats; do
+    cds compile --to "$format" "$source" > "$targetdir/$source.$format"
+done
+
+# Copy the source also to the target dir
+cp "$source.cds" "$targetdir/"
