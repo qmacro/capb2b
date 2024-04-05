@@ -1,4 +1,4 @@
-ID,title
-dc3c659f-29c5-4b21-b3b0-44c58bae5306,The Hitch Hiker's Guide To The Galaxy
-f584c9c9-c076-423a-9638-4c5917a4cbac,Mostly Harmless
-3b1e1d9e-9563-4cd3-a448-69b8b8f1c384,The Player Of Games
+ID,title,author_ID
+dc3c659f-29c5-4b21-b3b0-44c58bae5306,The Hitch Hiker's Guide To The Galaxy,01afafdf-0b4a-475b-b107-77fd3c9157da
+f584c9c9-c076-423a-9638-4c5917a4cbac,Mostly Harmless,01afafdf-0b4a-475b-b107-77fd3c9157da
+3b1e1d9e-9563-4cd3-a448-69b8b8f1c384,The Player Of Games,d5adee57-ef4a-441e-bfa7-9acac6e647e4
