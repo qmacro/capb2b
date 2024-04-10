@@ -11,4 +11,12 @@ RUN apt-get update \
 # Install SAP CAP SDK globally
 USER node
 RUN npm install -g @sap/cds-dk
+
+# vi mode everywhere KTHXBAI
+RUN cat <<EOBASHRC >> /home/node/.bashrc
+set -o vi
+bind -x '"\C-l": clear'
+EOBASHRC
+
+# Ready!
 WORKDIR /home/node
