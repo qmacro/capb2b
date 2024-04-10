@@ -14,6 +14,7 @@ RUN npm install -g @sap/cds-dk
 
 # vi mode everywhere KTHXBAI
 RUN cat <<EOBASHRC >> /home/node/.bashrc
+export EDITOR=vi
 set -o vi
 bind -x '"\C-l": clear'
 EOBASHRC
