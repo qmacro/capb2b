@@ -12,11 +12,12 @@ RUN apt-get update \
 USER node
 RUN npm install -g @sap/cds-dk
 
-# vi mode everywhere KTHXBAI
+# vi mode everywhere and nicer prompt KTHXBAI
 RUN cat <<EOBASHRC >> /home/node/.bashrc
 export EDITOR=vi
 set -o vi
 bind -x '"\C-l": clear'
+export PS1=${PS1/\$ /\\n$ }
 EOBASHRC
 
 # Ready!
