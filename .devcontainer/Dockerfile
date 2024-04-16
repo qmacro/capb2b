@@ -17,8 +17,9 @@ RUN cat <<EOBASHRC >> /home/node/.bashrc
 export EDITOR=vi
 set -o vi
 bind -x '"\C-l": clear'
-export PS1=${PS1/\$ /\\n$ }
 EOBASHRC
+
+RUN echo 'export PS1=${PS1/\$ /\\\\n$ }' >> /home/node/.bashrc
 
 # Ready!
 WORKDIR /home/node
