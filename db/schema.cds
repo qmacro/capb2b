@@ -17,13 +17,9 @@ entity Authors : cuid {
 
 entity Orders : cuid {
   comment : String;
-  Items   : Composition of many OrderItems
-              on Items.parent = $self;
-}
-
-entity OrderItems { // to be accessed through Orders only
-  key parent   : Association to Orders;
-  key pos      : Integer;
-      quantity : Integer;
-      book     : Association to Books;
+  Items   : Composition of many {
+              key pos      : Integer;
+                  quantity : Integer;
+                  book     : Association to Books;
+            }
 }
