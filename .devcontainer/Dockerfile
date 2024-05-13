@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 
 ARG VARIANT="20"
+ARG CAPVER="latest"
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
 
 # Install some generally useful tools
@@ -10,7 +11,7 @@ RUN apt-get update \
 
 # Install SAP CAP SDK globally
 USER node
-RUN npm install -g @sap/cds-dk
+RUN npm install -g @sap/cds-dk@$CAPVER
 
 # vi mode everywhere and nicer prompt KTHXBAI
 RUN cat <<EOBASHRC >> /home/node/.bashrc
