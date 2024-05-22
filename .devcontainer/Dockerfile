@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
 ARG VARIANT="20"
-ARG CAPVER="latest"
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
+ARG CAPVER="latest"
 
 # Install some generally useful tools
 RUN apt-get update \
