@@ -10,7 +10,8 @@
     "express": "^4"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^1"
+    "@cap-js/sqlite": "^1",
+    "cap-listening-plugin": "github:qmacro/cap-listening-plugin"
   },
   "scripts": {
     "start": "cds-serve"
