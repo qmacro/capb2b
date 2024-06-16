@@ -1,10 +1,16 @@
 const cds = require('@sap/cds')
 const logger = cds.log('capb2b')
 module.exports = cds.service.impl(function () {
-    logger("I am in the anonymous function")
-    this.after('READ', 'Books', (data, req) => {
-        // logger(data)
-        data.map(book => book.title += '!' )
-
-    })
+    const changeUrgencyDueToSubject = (data) => {
+        if (data) {
+            const books = Array.isArray(data) ? data : [data];
+            books.forEach((book) => {
+                if (book.title?.toLowerCase().includes("harmless")) {
+                    book.urgency = "HIGH"
+                }
+            });
+        }
+    }
+    //this.after('READ', 'Books', (data) => changeUrgencyDueToSubject(data) )
+      this.after('READ', 'Books', changeUrgencyDueToSubject)
 })
