@@ -7,6 +7,7 @@ aspect cuid {
 entity Books : cuid {
   title  : String;
   author : Association to Authors;
+  stock  : Integer;
 }
 
 entity Authors : cuid {

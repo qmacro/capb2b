@@ -1,4 +1,5 @@
 const cds = require('@sap/cds')
+const { Books } = cds.entities('bookshop')
 const logger = cds.log('capb2b')
 module.exports = cds.service.impl(function () {
     const changeUrgencyDueToSubject = (data) => {
@@ -11,6 +12,6 @@ module.exports = cds.service.impl(function () {
             });
         }
     }
-    //this.after('READ', 'Books', (data) => changeUrgencyDueToSubject(data) )
-      this.after('READ', 'Books', changeUrgencyDueToSubject)
+    this.on('totalStock', () => 99)
+    this.after('READ', Books, changeUrgencyDueToSubject)
 })
