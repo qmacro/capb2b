@@ -1,6 +1,7 @@
 const cds = require('@sap/cds')
 const { Books } = cds.entities('bookshop')
 const logger = cds.log('capb2b')
+const totalStock = `totalStock`
 module.exports = cds.service.impl(function () {
     const changeUrgencyDueToSubject = (data) => {
         if (data) {
@@ -12,9 +13,12 @@ module.exports = cds.service.impl(function () {
             });
         }
     }
-    this.on('totalStock', async () => {
+    this.on(totalStock, async () => {
         const result = await SELECT .one .from(Books) .columns('sum(stock) as total') 
         return result.total
     })
     this.after('READ', Books, changeUrgencyDueToSubject)
+
+    //this.on('getStock','Foo', ({params:[id]}) => stocks[id])
+    this.on('stockValue',Books, () => 42)
 })
