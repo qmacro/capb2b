@@ -20,5 +20,12 @@ module.exports = cds.service.impl(function () {
     this.after('READ', Books, changeUrgencyDueToSubject)
 
     //this.on('getStock','Foo', ({params:[id]}) => stocks[id])
-    this.on('stockValue',Books, () => 42)
+    this.on('stockValue',Books, async ({params:[id]}) => {
+        const result = await SELECT 
+        .one
+        .columns(['stock * price as stockValue']) 
+        .from (Books)
+        .where `ID = ${id}`
+        return result.stockValue
+    })
 })
