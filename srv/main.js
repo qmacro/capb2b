@@ -28,4 +28,12 @@ module.exports = cds.service.impl(function () {
         .where `ID = ${id}`
         return result.stockValue
     })
+    this.on('setPrice',Books, async req => {
+        const id = req.params[0]
+        logger(req.data)
+        await UPDATE (Books, id) .with ({
+            price: req.data.price
+        })
+        return await SELECT (Books, id)
+    })
 })
