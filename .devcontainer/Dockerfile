@@ -9,6 +9,11 @@ RUN apt-get update \
     && apt-get -y install --no-install-recommends \
     curl git sqlite3 entr source-highlight
 
+# Install CF8 CLI
+RUN wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo gpg --dearmor -o /usr/share/keyrings/cli.cloudfoundry.org.gpg
+RUN echo "deb [signed-by=/usr/share/keyrings/cli.cloudfoundry.org.gpg] https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+RUN apt update && apt install cf8-cli -y
+
 # Install SAP CAP SDK globally
 USER node
 RUN npm install -g @sap/cds-dk@$CAPVER
